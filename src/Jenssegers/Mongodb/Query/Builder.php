@@ -218,7 +218,7 @@ class Builder extends BaseBuilder
         // here to either the passed columns, or the standard default of retrieving
         // all of the columns on the table using the "wildcard" column character.
         if (is_null($this->columns)) {
-            $this->columns = $columns;
+            $this->columns = empty($columns)?[]:$columns;
         }
 
         // Drop all columns if * is present, MongoDB does not work this way.
