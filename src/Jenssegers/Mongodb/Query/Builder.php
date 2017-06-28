@@ -222,7 +222,7 @@ class Builder extends BaseBuilder
         }
 
         // Drop all columns if * is present, MongoDB does not work this way.
-        if (in_array('*', $this->columns)) {
+        if (!is_array($this->columns) || in_array('*', $this->columns)) {
             $this->columns = [];
         }
 
